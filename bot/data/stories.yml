@@ -14,91 +14,67 @@ stories:
   steps:
   - intent: despedir
   - action: utter_despedir
-- story: religiao
-  steps:
-  - intent: religiao
-  - action: utter_religiao
-  - action: utter_continuar_conversa
-- story: time
-  steps:
-  - intent: time
-  - action: utter_time
-  - action: utter_continuar_conversa
-- story: genero
-  steps:
-  - intent: genero
-  - action: utter_genero
-  - action: utter_continuar_conversa
-- story: piada
-  steps:
-  - intent: piada
-  - action: utter_piada
-  - action: utter_continuar_conversa
-- story: licenca
-  steps:
-  - intent: licenca
-  - action: utter_licenca
-  - action: utter_continuar_conversa
-- story: onde_voce_mora
-  steps:
-  - intent: onde_voce_mora
-  - action: utter_onde_voce_mora
-  - action: utter_continuar_conversa
-- story: musica
-  steps:
-  - intent: musica
-  - action: utter_musica
-  - action: utter_continuar_conversa
-- story: comida
-  steps:
-  - intent: comida
-  - action: utter_comida
-  - action: utter_continuar_conversa
-- story: cor
-  steps:
-  - intent: cor
-  - action: utter_cor
-  - action: utter_continuar_conversa
-- story: relacionamento
-  steps:
-  - intent: relacionamento
-  - action: utter_relacionamento
-  - action: utter_continuar_conversa
-- story: historia
-  steps:
-  - intent: historia
-  - action: utter_historia
-  - action: utter_continuar_conversa
 - story: Tudo Bem 
   steps:
   - intent: tudo_bem
   - action: utter_tudo_bem
-- story: elogios
+
+- story: oquee_bp
   steps:
-  - intent: elogios
-  - action: utter_elogios
-  - action: utter_continuar_conversa
-- story: me ajuda
+  - intent: oquee_bp
+  - action: utter_oquee_bp
+
+- story: participar
   steps:
-  - intent: me_ajuda
-  - action: utter_me_ajuda
-- story: exemplo acao
+  - intent: participar
+  - action: utter_participar
+
+- story: usuario_permitido
   steps:
-  - intent: exemplo_acao
-    entities:
-      - acao
-  - action: action_exemplo
-#- story: Ativa formulário
-#  steps:
-#    - intent: exemplo_forms
-#    - action: utter_exemplo_forms
-#    - action: exemplo_forms
-#    - active_loop: exemplo_forms
-#- story: Envia formulário
-#  condition:
-#  - active_loop: exemplo_forms
-#  steps:
-#    - action: exemplo_forms
-#    - active_loop: null
-#    - action: utter_submit_exemplo_forms
-#    - action: utter_slots_exemplo_forms
+  - intent: usuario_permitido
+  - action: utter_usuario_permitido
+
+- story: acesso_govbr
+  steps:
+  - intent: acesso_govbr
+  - action: utter_acesso_govbr
+
+- story: participacao
+  steps:
+  - intent: participacaome_ajuda
+  - action: utter_participacao
+
+- story: consulta_publica
+  steps:
+  - intent: consulta_publica
+  - action: utter_consulta_publica
+
+- story: conferencia
+  steps:
+  - intent: conferencia
+  - action: utter_conferencia
+
+- story: audiencia
+  steps:
+  - intent: audiencia
+  - action: utter_audiencia
+
+- story: colegiado
+  steps:
+  - intent: colegiado
+  - action: utter_colegiado
+
+- story: digital
+  steps:
+  - intent: digital
+  - action: utter_digital
+
+- story: atendente
+  steps:
+  - intent: atendente
+  - action: utter_atendente
+
+- story: ppa
+  steps:
+  - intent: ppa
+  - action: utter_ppa

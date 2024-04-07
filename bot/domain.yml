@@ -7,28 +7,20 @@ intents:
   - despedir
   - out_of_scope
   - tudo_bem
-  - elogios
-#   - religiao
-#   - time
-#   - genero
-#   - piada
-#   - licenca
-#   - onde_voce_mora
-#   - musica
-#   - comida
-#   - cor
-#   - signo
-#   - triste
-#   - historia
-#   - afirmar
-#   - negar
-#   - cancelar
-#   - informar
-#   - menu
-#   - exemplo_acao
-#   - exemplo_forms
-  # response selectors
   - explica
+  - oquee_bp
+  - participar
+  - usuario_permitido
+  - acesso_govbr
+  - participacao
+  - consulta_publica
+  - conferencia
+  - audiencia
+  - colegiado
+  - digital
+  - atendente
+  - ppa
+
 
 entities:
   - menu
@@ -107,14 +99,11 @@ responses:
       Vamos tentar mais uma vez? Eu não consegui te entender direito, me pergunta de outro jeito?
   - text: |
       Desculpe, acho que não sei nada sobre isso. Mas você pode me fazer uma nova pergunta ou entrar em contato pelo e:mail: participacaodigital@presidencia.gov.br
-  utter_elogios:
-  - text: |
-      Obrigada! É sempre bom dar e receber elogios :P
   utter_cumprimentar:
   - text: |
-      Oi, eu sou um bot, um assistente virtual!
-      Uhuu! Manda aí um assunto que te interessa :)
-      Para aprender como você pode interagir comigo basta escrever meajuda.
+      Oi, eu sou um assistente virtual do Brasil Participativo!
+      Consigo te responder sobre Participação social, consultas e audiências públicas, e mais sobre processos participativos.
+      Qual é sua dúvida? (Caso queira aprender como você pode interagir comigo basta escrever meajuda.)
   utter_despedir:
   - text: |
       Foi um prazer te ajudar!
@@ -136,6 +125,51 @@ responses:
   - text: "**NLU Fallback**: Desculpe, não consegui entender sua mensagem. Pode me perguntar de outra forma?"
   utter_core_fallback:
   - text: "**Core Fallback**: Desculpe, não consegui encontrar uma resposta pra sua mensagem. Digite /restart para recomeçar a conversa."
+  utter_oquee_bp:
+  - text: |
+        A Plataforma Brasil Participativo é a nova plataforma de participação social do governo federal, construída para que a população possa contribuir com a criação e melhoria das políticas públicas por meio de iniciativas do governo para a escuta à população. 
+        Podem participar cidadãs e cidadãos com cadastro no Gov.Br e pessoas estrangeiras.
+  utter_participar:
+  - text: |
+        Para participar, basta entrar com seu login e senha do Gov.Br.
+        A participação é feita de acordo com a iniciativa de participação social escolhida, podendo ser por meio de votos, submissão de propostas, projetos e/ou comentários.
+  
+  utter_usuario_permitido:
+  - text: |
+        Podem participar todos os cidadãos e cidadãs brasileiros com cadastro com Gov.Br e pessoas estrangeiras.
+  utter_acesso_govbr:
+  - text: |
+        A plataforma Brasil Participativo é integrada ao login único do Gov.Br. Em caso de perda de senha, dificuldade de acesso ou divergências nos dados cadastrais, solicite as informações de recuperação de senha e acesso através do endereço gov.br/atendimento
+
+  utter_participacao:
+  - text: |
+        A participação social é participação da população na criação e melhoria das políticas públicas. Uma ação democrática participativa, onde a sociedade civil pode atuar nas políticas institucionais. Ela ocorre de diferentes formas e em diferentes meios. Podendo ser por meio de conselhos participativos, consultas públicas, iniciativas do governo para a escuta à população,  conferências nacionais, entre outros.
+        Nós, da Diretoria de Participação Digital e Comunicação em Rede, da Secretaria-Geral da Presidência da República, somos responsáveis por promover a participação social de forma digital à toda sociedade por meio das iniciativas abrigadas na Plataforma Brasil Participativo.
+  
+  utter_consulta_publica:
+  - text: |
+        É um mecanismo de participação social, de caráter consultivo, realizado com prazo definido e aberto a qualquer interessado, com o objetivo de receber contribuições sobre determinado assunto. Incentiva a participação da sociedade na tomada de decisões relativas à formulação e definição de políticas públicas.
+  
+  utter_conferencia:
+  - text: |
+        Instância periódica de debate, de formulação e de avaliação sobre temas específicos e de interesse público, com a participação de representantes do governo e da sociedade civil, podendo contemplar etapas estaduais, distrital, municipais ou regionais, para propor diretrizes e ações acerca do tema tratado
+  
+  utter_audiencia:
+  - text: |
+        Mecanismo participativo de caráter presencial, consultivo, aberto a qualquer interessado, com a possibilidade de manifestação oral dos participantes, cujo objetivo é subsidiar decisões governamentais
+
+  utter_colegiado:
+    - text: |
+        Definir o que é colegiado
+  utter_digital:
+    - text: |
+        Mecanismo de interação social que utiliza tecnologias de informação e de comunicação, em especial a internet, para promover o diálogo entre administração pública federal e sociedade civil. 
+  utter_atendente:
+    - text: |
+        Por favor, entre em contato pelo e-mail: participacaodigital@presidencia.gov.br
+  utter_ppa:
+    - text: |
+        Entenda todo processo do Plano Plurianual (PPA) por meio do link: https://brasilparticipativo.presidencia.gov.br/pages/relatoriodaplataforma
 
 session_config:
   session_expiration_time: 60

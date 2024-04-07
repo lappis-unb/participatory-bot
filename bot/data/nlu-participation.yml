@@ -1,0 +1,148 @@
+version: "3.1"
+nlu:
+- intent: oquee_bp
+  examples: |
+    - O que é Brasil Participativo
+    - Brasil Participativo
+    - O que é isso
+    - me fale mais informações
+    - quero saber mais detalhes
+    - explique para mim
+    - Quero mais informações
+    - Como é isso
+    - Qual a finalidade
+    - Para que serve
+    - Qual serviço oferece
+    - Informações sobre a plataforma
+    - Gostaria de saber mais sobre
+    - Saber mais
+    - quero saber mais
+
+- intent: participar
+  examples: |
+    - Participar
+    - Como participar
+    - Como acessar
+    - Como faço para participar
+    - Como faço para participar do programa
+    - Como faço para me inscrever
+    - Como se inscrever
+    - Quero participar
+    - Gostaria de participar
+    - Como faço para entrar
+    - Como funciona
+    - Como se cadastrar
+    - Quais os procedimentos para ter acesso
+    - Tenho interesse
+    - Quais são as etapas para se inscrever
+    - Quero contribuir
+
+- intent: usuario_permitido
+  examples: |
+    - Posso participar
+    - Quais são os requisitos para participar
+    - Quem pode participar
+    - Quem está incluído para participar
+    - Quem está apto para participar
+    - Quem tem a permissão para participar
+    - Permissão para participar
+
+- intent: acesso_govbr
+  examples: |
+    - Gov.br
+    - Como recuperar minha senha
+    - Esqueci minha senha
+    - Não consigo acessar
+    - Não consigo entrar
+    - Não consigo acessar minha conta
+    - Recuperar senha
+    - Problemas para fazer login
+    - Não consigo fazer login na minha conta
+    - Estou com dificuldades para acessar minha conta
+    - Dificuldade de acesso
+
+- intent: participacao
+  examples: |
+    - O que é participação social
+    - Participação social
+    - Qual o benefício da participação social
+    - no que ajuda a participacao social
+    - nao entendo a participacao social
+    - o que significa participacao social
+    - participacao social é algo comum 
+
+- intent: consulta_publica
+  examples: |
+    - Consulta Pública
+    - Consulta
+    - O que é uma consulta pública
+    - o que significa consulta publica
+    - quem participa de consulta publica
+    - onde esta consulta publica
+    - como acessar consulta publica
+    - como contribuir com consulta publica
+
+
+- intent: conferencia
+  examples: |
+    - Conferência
+    - O que é uma conferência
+    - Quais as etapas de uma conferência
+    - como participar de uma conferencia
+    - conferência nacional
+    - conferencia do meu municipio
+    - quando acontece a conferencia do meu estado
+    - conferencia estadual
+    - como é feita uma conferencia
+  
+- intent: audiencia
+  examples: |
+    - Audiência
+    - Audiência Pública
+    - O que é uma audiência pública
+    - como participar de uma audiencia publica
+    - onde acontece uma audiencia publica
+    - eu posso entrar em uma audiencia publica
+
+- intent: colegiado
+  examples: |
+    - Colegiados
+    - O que são Colegiados
+    - onde encontro colegiados
+    - colegiados, o que é
+    - o que é colegiado
+
+- intent: digital
+  examples: |
+    - O que é participação social digital
+    - Participação digital
+
+- intent: atendente
+  examples: |
+    - Falar com um atendente
+    - Atendimento
+    - Atendimento ao usuário
+    - Gostaria de atendimento
+    - Preciso de ajuda
+    - Preciso de orientação
+    - quero falar com um humano
+    - falar com o assistente
+    - Suporte
+    - Assistência
+    - Auxílio
+    - Quero conversar com alguém
+    - Falar com uma pessoa
+
+- intent: ppa
+  examples: |
+    - PPA
+    - PPA Participativo
+    - Plano Plurianual Participativo
+    - o que foi o ppa
+    - onde aconteceu o ppa
+    - qual o resultado do PPA
+    - o que o governo escolheu no ppa
+    - Devolutiva
+    - Devolutiva do PPA
+    - Devolutiva PPA
+    - Quais propostas foram selecionadas
