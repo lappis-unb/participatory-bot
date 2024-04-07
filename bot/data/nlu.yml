@@ -1,0 +1,141 @@
+version: "3.1"
+nlu:
+- intent: cumprimentar
+  examples: |
+    - olá
+    - Ola
+    - Oi
+    - Iae
+    - Olá
+    - bom dia
+    - boa tarde
+    - boa noite
+- intent: despedir
+  examples: |
+    - tchau
+    - adeus
+    - flw
+    - Até mais, bot
+- intent: afirmar
+  examples: |
+    - sim
+    - confirmo
+    - afirmo
+    - claro
+    - exato
+    - isso mesmo
+    - concordo
+    - isso mesmo!
+- intent: negar
+  examples: |
+    - não
+    - nao
+    - nao conheco
+    - não quero
+    - nego
+    - negativo
+    - ainda não sei
+- intent: cancelar
+  examples: |
+    - sair
+    - Desisto
+    - Para
+    - Cancela
+    - Sai disso
+    - Me tira daqui
+    - Para com isso
+    - Me tira disso
+    - Quero cancelar
+    - Saia dessa conversa
+    - Não quero mais isso
+    - Cancele esta operação
+    - Para de me perguntar coisas
+    - cansei, não quero responder!
+    - Pare o que você está fazendo
+    - Que loucura está acontecendo?!
+    - Não quero compartilhar meus dados
+    - Não quero mais informar meus dados
+- intent: informar
+  examples: |
+    - [Arthur](nome)
+    - O meu nome é [Arthur](nome)
+    - me chamo [Arthur](nome)
+    - Meu nome: [Arthur](nome)
+    - Claro, meu nome é [Arthur](nome)
+    - [25](idade)
+    - Minha idade é [25](idade)
+    - Tenho [25](idade) anos
+    - Eu tenho [25](idade) anos
+    - Tenho: [25](idade)
+- intent: menu
+  examples: |
+    - Me mostre o [menu](menu)
+    - [menu](menu)
+    - Quero ver o [menu](menu)
+    - kd o [menu](menu)
+    - Bot, me mostra o [menu](menu)
+    - Quais são as [opções](menu) de diálogo?
+    - Me mostre as [opcoes](menu) de conversa
+- intent: tudo_bem
+  examples: |
+    - tudo bem
+    - como vai voce
+    - como vao as coisas
+    - opa tudo bem
+    - to bem
+    - tranquilo
+    - estou bem
+    - estou otimo
+    - tudo bem e você
+    - tudo bom
+    - tá bem
+    - ta bem
+    - como vocês esta
+    - como voce esta
+    - como voce ta
+    - como vai você
+    - como vai vc
+- intent: me_ajuda
+  examples: |
+    - sobre o que você sabe falar
+    - o que mais você sabe falar
+    - quais assuntos você fala
+    - o que você sabe
+    - lista de assuntos possiveis
+    - quais as perguntas vc responde
+    - quais as perquisar você responde
+    - quero [ajuda](meajuda)
+    - [meajuda](meajuda
+    - [meajude](meajuda)
+    - [MEAJDA](meajuda)
+    - [me ajuda](meajuda)
+    - [me ajude](meajuda)
+    - [ajuda eu](meajuda)
+    - Qual o seu objetivo robo?
+    - Qual o seu objetivo robô?
+    - Vc tem um objetivo de existencia?
+    - Você foi feito pra que?
+    - Vc tem algum propósito?
+    - Como que vc pode me ser útil?
+    - Me fale mais sobre você.
+- intent: exemplo_acao
+  examples: |
+    - [action](acao)
+    - ativa [ação](acao)
+    - executa [action](acao)
+    - roda [ação](acao)
+    - entra [ação](acao)
+- intent: exemplo_forms
+  examples: |
+    - [forms](forms)
+    - ativa [forms](forms)
+    - executa [forms](forms)
+    - roda [forms](forms)
+    - entra [forms](forms)
+    - [form](forms)
+    - Bot, quero um exemplo de [formulário](forms)
+    - Bot, entra em um [form](forms)
+    - Exemplo de [formulário](forms)
+    - Me explique como funcionam os [formulários](forms) no rasa.
+    - Você sabe fazer um [forms](forms)?
+    - me explica sobre [forms](forms)?

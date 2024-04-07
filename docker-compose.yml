@@ -1,0 +1,76 @@
+version: "3.9"
+
+services:
+  # ================================= Bot =====================================
+  # Generic Rasa bot, used to run console for example.
+  bot:
+    build:
+      context: .
+      dockerfile: ./docker/bot.Dockerfile
+      args:
+        RASA_VERSION: ${RASA_VERSION}
+    container_name: bot
+    env_file:
+      - ./bot/.env
+    volumes:
+      - ./bot/:/bot/
+    ports:
+      - 5005:5005
+    depends_on:
+      - actions
+      - mongo
+    networks:
+      - bot
+  # ============================ Tracker Store=================================
+  # A mongodb container as rasa tracker store.
+  mongo:
+    container_name: mongo
+    image: mongo:6.0
+    restart: unless-stopped
+    env_file:
+      - ./bot/.env
+    ports:
+      - 27017:27017
+    networks:
+      - bot
+    volumes:
+      - ./data/db:/data/db
+
+  # ================================= Actions =================================
+  # Rasa middleware used to connect with external APIs.
+  actions:
+    build:
+      context: .
+      dockerfile: ./docker/actions.Dockerfile
+      args:
+        RASA_SDK_VERSION: ${RASA_SDK_VERSION}
+    container_name: actions
+    env_file:
+      - ./bot/.env
+    ports:
+      - 5055:5055
+    volumes:
+      - ./bot:/bot
+    command: sh -c "python -m rasa_sdk --actions actions"
+    networks:
+      - bot
+
+  # ============================ Webchat Page  =================================
+  # A container to run webchat html page
+  webchat:
+    image: nginx
+    ports:
+      - 5000:80
+    volumes:
+      - ./modules/webchat:/usr/share/nginx/html
+    networks:
+      - bot
+
+volumes:
+  mongo_data:
+  rocket_uploads:
+
+
+networks:
+  bot:
+    driver: bridge

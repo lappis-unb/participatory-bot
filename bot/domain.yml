@@ -1,0 +1,142 @@
+version: '3.1'
+
+intents:
+  - cumprimentar
+  - relacionamento
+  - me_ajuda
+  - despedir
+  - out_of_scope
+  - tudo_bem
+  - elogios
+#   - religiao
+#   - time
+#   - genero
+#   - piada
+#   - licenca
+#   - onde_voce_mora
+#   - musica
+#   - comida
+#   - cor
+#   - signo
+#   - triste
+#   - historia
+#   - afirmar
+#   - negar
+#   - cancelar
+#   - informar
+#   - menu
+#   - exemplo_acao
+#   - exemplo_forms
+  # response selectors
+  - explica
+
+entities:
+  - menu
+  - meajuda
+  - religiao
+  - time
+  - genero
+  - piada
+  - licenca
+  - musica
+  - comida
+  - cor
+  - signo
+  - triste
+  - historia
+  - vive
+  - nome
+  - idade
+  - relationship
+  - intent
+  - entity 
+  - slot
+  - response_selectors
+  - storie
+  - acao
+  - forms
+  - slot_example
+
+slots:
+  nome:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: nome
+      intent: informar
+  idade:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: idade
+      intent: informar
+  requested_slot:
+    type: any
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: cuisine
+  slot_example:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+
+actions:
+  - action_exemplo
+  - action_default_fallback
+
+forms:
+  exemplo_forms:
+    required_slots:
+      - idade
+      - nome
+
+responses:
+  utter_fallback:
+  - text: |
+      Desculpe, ainda não sei falar sobre isso ou talvez não consegui entender direito
+      Você pode perguntar de novo de outro jeito?
+  - text: |
+      Hummmm... Não sei se entendi. Pode escrever de outra forma?
+  - text: |
+      Acho que não te entendi, você pode me perguntar de novo usando outras palavras?
+  - text: |
+      Vamos tentar mais uma vez? Eu não consegui te entender direito, me pergunta de outro jeito?
+  - text: |
+      Desculpe, acho que não sei nada sobre isso. Mas você pode me fazer uma nova pergunta ou entrar em contato pelo e:mail: participacaodigital@presidencia.gov.br
+  utter_elogios:
+  - text: |
+      Obrigada! É sempre bom dar e receber elogios :P
+  utter_cumprimentar:
+  - text: |
+      Oi, eu sou um bot, um assistente virtual!
+      Uhuu! Manda aí um assunto que te interessa :)
+      Para aprender como você pode interagir comigo basta escrever meajuda.
+  utter_despedir:
+  - text: |
+      Foi um prazer te ajudar!
+      Sempre que tiver alguma dúvida, volte aqui!
+      Até logo!
+  - text: |
+      Foi um prazer te ajudar!
+      Sempre que precisar, volte aqui!
+      Até a próxima!
+  - text: |
+      Foi um prazer te ajudar!
+      Quando surgir alguma dúvida, volte aqui!
+      Até mais!
+  utter_tudo_bem:
+  - text: |
+      Tudo bem, obrigada! Em que posso te ajudar?
+  # utters fallback
+  utter_nlu_fallback:
+  - text: "**NLU Fallback**: Desculpe, não consegui entender sua mensagem. Pode me perguntar de outra forma?"
+  utter_core_fallback:
+  - text: "**Core Fallback**: Desculpe, não consegui encontrar uma resposta pra sua mensagem. Digite /restart para recomeçar a conversa."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

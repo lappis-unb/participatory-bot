@@ -1,93 +1,166 @@
-# participatory-bot
+# Participatory Bot
 
 
+Usa como base o boilerplate criado pelo laboratório LAPPIS ([mais informações aqui](http://github.com/lappis-unb/rasa-ptbr-boilerplate)).
 
-## Getting started
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+## Tutorial
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+Primeiramente, clone o repositório para sua máquina local usando o comando:
 
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
-
-```
-cd existing_repo
-git remote add origin https://gitlab.com/lappis-unb/decidimbr/participatory-bot.git
-git branch -M main
-git push -uf origin main
+```sh
+git clone https://github.com/lappis-unb/rasa-ptbr-boilerplate.git
 ```
 
-## Integrate with your tools
+Para ter seu chatbot Rasa funcionando, certifique-se de estar dentro da pasta do projeto e então execute no terminal o seguinte comando:
 
-- [ ] [Set up project integrations](https://gitlab.com/lappis-unb/decidimbr/participatory-bot/-/settings/integrations)
+```sh
+make init
+```
 
-## Collaborate with your team
+Esse comando irá construir a infraestrutura necessária (subir containers com as dependências, treinar o chatbot e iniciar o chat no modo shell) para possibilitar a interação com o chatbot.
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+Depois que tudo for instalado, você verá a seguinte mensagem e pode começar a interagir com o bot:
 
-## Test and Deploy
+```sh
+Bot loaded. Type a message and press enter (use '/stop' to exit):
+Your input ->
+```
 
-Use the built-in continuous integration in GitLab.
+Para fechar a interação com o bot é só digitar `ctrl+c`.
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
 
-***
+### Comandos
 
-# Editing this README
+* O comando de treinamento é usado para criar os modelos necessários na conversação do bot. Para treinar o seu chatbot execute o comando:
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+```sh
+make train
+```
 
-## Suggestions for a good README
+* Para executar o bot no terminal execute:
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+```sh
+make shell
+```
 
-## Name
-Choose a self-explaining name for your project.
+### Configuração Telegram
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+Após realizar o [tutorial](/docs/setup_telegram.md) de exportação de todas variávies de ambiente necessárias, é possível realizar a execução do bot no telegram corretamente.
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+**Antes de seguir adiante. Importante:** As variáveis de ambiente são necessárias para o correto funcionamento do bot, por isso não esqueça de exportá-las.
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+Depois execute o bot no telegram:
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+```sh
+make telegram
+```
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+### Analytics
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+Para a visualização dos dados da interação entre o usuário e o chatbot nós utilizamos uma parte da Stack do Elastic, composta pelo ElasticSearch e o Kibana. Com isso, utilizamos um broker para fazer a gerência de mensagens. Então conseguimos adicionar mensagens ao ElasticSearch independente do tipo de mensageiro que estamos utilizando.
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+* Para uma **configuração rápida** execute o seguinte comando:
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+```sh
+make build-analytics
+```
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+Espere até os serviço do *ElasticSearch* estar pronto, e execute o comando abaixo para configurar os índices:
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+```
+make config-elastic
+``` 
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+Espere até os serviço do *Kibana* estar pronto, e execute o comando abaixo para configurar os *dashboards*:
 
-## License
-For open source projects, say how it is licensed.
+```
+make config-kibana
+``` 
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+O comando acima precisa ser executado apenas 1 vez e já vai deixar toda a infra de `analytics` pronta para o uso.
+
+Acesse o **kibana** na url `locahost:5601`
+
+Caso você deseje entender o processo de configuração da *stack* de *analytics*, veja a [explicação completa de analytics](docs/setup_analytics.md).
+
+### Adicionando componentes customizados de treinamento
+
+O Rasa permite a adição de módulos customizados no seu pipeline de processamento, aprenda mais [AQUI](https://blog.rasa.com/enhancing-rasa-nlu-with-custom-components/).
+
+Existe aqui um exemplo de componente customizado que implementa Análise de Sentimentos.
+
+Para utilizá-lo basta introduzir o componente `components.sentiment_analyzer.SentimentAnalyzer` ao arquivo `bot/config.yml`. Como no exemplo:
+
+```ymal
+language : "pt"
+
+pipeline:
+  - name: WhitespaceTokenizer
+  - name: "components.sentiment_analyzer.SentimentAnalyzer"                                                                                        - name: RegexFeaturizer
+```
+
+Depois, como no exemplo do arquivo `bot/components/labels.yml`, adicione frases que correspondam à uma label(classificação ou sentimento).
+
+Por último basta treinar o bot novamente, e a informação será armazenada na entidade `sentiment` caso o componente identifique um valor para essa entidade.
+
+
+## Notebooks - Análise de dados
+
+### Setup
+
+Levante o container `notebooks`
+
+```sh
+make notebooks
+```
+
+Acesse o notebook em `localhost:8888`
+
+## Documentação
+
+A documentação do projeto pode ser executada localmente utilizando o [GitBook](https://www.gitbook.com/).
+Para instalar o gitbook via npm, é preciso ter instalado no computador [Node.js e npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
+
+
+* Instale o [gitbook](https://til.secretgeek.net/gitbook/use_gitbook_locally.html):
+
+```sh
+npm install -g gitbook gitbook-cli
+```
+
+* Depois de instalado, na pasta raíz do projeto, execute:
+
+```sh
+gitbook build .
+```
+
+* E para rodar localmente execute:
+
+```sh
+gitbook serve .
+```
+
+* Acesse:
+
+```
+http://localhost:4000/
+```
+
+**Contribuição**: Para contribuir com a documentação do projeto leia [como contribuir para a documentação](docs/Tutoriais/tutorial-como-contribuir-com-documentacao.md)
+
+# Como conseguir ajuda
+
+Parte da documentação técnica do framework da Tais está disponível na
+[wiki do repositório](https://github.com/lappis-unb/tais/wiki). Caso não encontre sua resposta, abra uma issue com a tag `duvida` que tentaremos responder o mais rápido possível.
+
+Em caso de dúvidas em relação ao Rasa, veja o grupo [Telegram Rasa Stack Brasil](https://t.me/RasaBrasil), estamos lá também para ajudar.
+
+Veja mais informações de contato em nosso site: https://lappis.rocks.
+
+# Licença
+
+Todo o framework do boilerplate é desenvolvido sob a licença
+[GPL3](https://github.com/lappis-unb/rasa-ptbr-boilerplate/blob/master/LICENSE)
+
+Veja a lista de dependências de licenças [aqui](https://libraries.io/github/lappis-unb/rasa-ptbr-boilerplate)
